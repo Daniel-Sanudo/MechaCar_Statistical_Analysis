@@ -24,3 +24,20 @@ coil_lot_psi_summary <- coil_df %>% group_by(Manufacturing_Lot)%>% summarize(Mea
 coil_lot_psi_summary <- as.data.frame(coil_lot_psi_summary)
 # Show summary
 coil_lot_psi_summary
+# T.test for the total population
+t.test(coil_df$PSI,mu=mean(coil_df$PSI))
+# Create subset for lot 1
+coil_subset_1 <- subset(coil_df, Manufacturing_Lot == "Lot1")
+coil_subset_1
+# Create subset for lot 2
+coil_subset_2 <- subset(coil_df, Manufacturing_Lot == "Lot2")
+coil_subset_2
+# Create subset for lot 1
+coil_subset_3 <- subset(coil_df, Manufacturing_Lot == "Lot3")
+coil_subset_3
+# T.test for lot 1
+t.test(coil_subset_1$PSI,mu=mean(coil_df$PSI))
+# T.test for lot 2
+t.test(coil_subset_2$PSI,mu=mean(coil_df$PSI))
+# T.test for lot 3
+t.test(coil_subset_3$PSI,mu=mean(coil_df$PSI))
